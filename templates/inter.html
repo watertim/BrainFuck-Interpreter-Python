@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Brainfuck 輸入</title>
+
+        <style>
+
+            html
+            {
+                background-color: #181a1b !important;
+            }
+            
+            .example_a 
+            {
+                color: #fff !important;
+                text-transform: uppercase;
+                text-decoration: none;
+                background: #ed3330;
+                padding: 20px;
+                border-radius: 5px;
+                display: inline-block;
+                border: none;
+                transition: all 0.4s ease 0s;
+            }
+            .example_a:hover 
+            {
+                background: #434343;
+                letter-spacing: 1px;
+                -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+                -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+                box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
+                transition: all 0.4s ease 0s;
+            }
+
+            .area
+            {
+                background-color: #181a1b;
+                color: white;
+                padding: 20px;
+                border-radius: 20px;
+                display: inline-block;
+                border: 0.5px solid DarkOrange;
+                transition: all 0.4s ease 0s;
+            }
+            .area:focus
+            {
+                padding: 20px;
+                border-radius: 20px;
+                display: inline-block;
+                border: 5px solid DarkOrange;
+                transition: all 0.4s ease 0s;
+            }
+
+            .title
+            {
+                color: rgb(51, 125, 255);
+            }
+        </style>
+
+        <script>
+            function doFormSubmit() 
+            {
+                var formData = document.forms['bfForm']
+
+                var bf = formData['inpBf'].value
+
+                bf = bf.replace(' ','')
+                bf = bf.replace('\n','')
+                bf = bf.replace('\r','')
+
+                bf = encodeURIComponent(bf)
+
+                formData['encodeBf'].value = bf
+
+                document.bfForm.submit()
+
+                // location.href="{{ url_for('test', bf=bf) }}"
+            }
+        </script>
+    </head>
+    <body>
+        <div align="center" class="title"><h3>輸入Brainfuck原始碼: </h3></div>
+        
+        <form action="#" method="get" name="bfForm">
+            <div align="center">
+                <textarea style="width:500px;height:200px;" name="inpBf" class="area"></textarea>
+            </div>
+
+            <div align="center" hidden>
+                <textarea style="width:500px;height:200px;" name="encodeBf" class="area" ></textarea>
+            </div>
+
+            <br>
+            <div class="button_cont" align="center">
+                <input type="button" value="轉換" class="example_a" onclick="doFormSubmit()">
+            </div>
+        </form>
+    </body>
+</body>

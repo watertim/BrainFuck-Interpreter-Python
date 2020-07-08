@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>簡易BrainFuck直譯器</title>
+    </head>
+    <body>
+        <h1>
+            簡易BrainFuck直譯器 by Watertim, 030Mortal
+        </h1>
+        <h2>
+            使用說明：
+        </h2>
+        <p>
+            有兩種方法可以使用此直譯器：
+        </p>
+        <ol>
+            <li>網址列輸入/網頁內容輸出(API介面)</li>
+            <p>
+                <ul>
+                    <li>
+                        輸入: 
+                        <a href="{{ url_for('api') }}?bf=">{{ url_for('api')}}?bf=</a>
+                        {你要輸入的BrainFuck程式碼}
+                    </li>
+                    <li>輸出: 網頁內容即為輸出</li>
+                </ul>
+            </p>
+            <li>GUI網頁介面</li>
+            <p>
+                <ul>
+                    <li>
+                        說明: 開啟
+                        <a href="{{ url_for('inter') }}">{{ url_for('inter')}}</a>
+                        ，並在輸入框填入你的BrainFuck程式碼，再按下[轉換]按鈕即可獲得結果
+                    </li>
+                </ul>
+            </p>
+        </ol>
+
+    </body>
+</html>

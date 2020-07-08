@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Brainfuck 結果</title>
+
+        <style>
+
+            html
+            {
+                background-color: #181a1b !important;
+            }
+
+            .example_a 
+            {
+                color: #fff !important;
+                text-transform: uppercase;
+                text-decoration: none;
+                background: #ed3330;
+                padding: 20px;
+                border-radius: 5px;
+                display: inline-block;
+                border: none;
+                transition: all 0.4s ease 0s;
+            }
+            .example_a:hover 
+            {
+                background: #434343;
+                letter-spacing: 1px;
+                -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+                -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+                box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
+                transition: all 0.4s ease 0s;
+            }
+
+            .area
+            {
+                background-color: #181a1b;
+                color: white;
+                
+                width:500px;
+                height:200px;
+                padding: 20px;
+                border-radius: 20px;
+                display: inline-block;
+                border: 5px solid DarkOrange;
+                transition: all 0.4s ease 0s;
+            }
+
+            .title
+            {
+                color: rgb(51, 125, 255);
+            }
+
+        </style>
+
+        <script>
+            function get(name){
+                //console.log(RegExp('[?&]'+encodeURIComponent(name)+'=([^&]*)')).exec(location.search)
+                if(match =(new RegExp('[?&]'+encodeURIComponent(name)+'=([^&]*)')).exec(location.search))
+                {
+                    try 
+                    {
+                        match[1]
+
+                        // console.log("has " + name)
+                    }
+                    catch (error) 
+                    {
+                        // console.log("no " + name)
+
+                        return                        
+                    }
+
+                    bf = match[1].replace(' ', '')
+                    bf = match[1].replace('%20', '')
+                    bf = match[1].replace('\n', '')
+                    bf = match[1].replace('\r', '')
+
+                    // console.log(decodeURIComponent(match[1]))
+                    
+                    document.location.href = "{{ url_for('inter') }}?encodeBf=" + encodeURIComponent(match[1]); 
+                }
+                else
+                {
+                    // console.log("no " + name)
+
+                    return                 
+                }
+            }
+
+            window.onload = function() {
+                // get('encodeBf')
+                get('bf')
+            };
+        </script>
+    </head>
+    <body>
+        <div align="center" class="title"><h3>結果: </h3></div>
+        <div align="center"><div class="area" align="center">{{ inp }}</div></div>
+        <br>
+        <div class="button_cont" align="center">
+            <button onclick="location.href='{{ url_for('inter') }}'" class="example_a">回到上一頁</button>
+
+            <!-- <button onclick="get('bf')" class="example_a">GET</button> -->
+        </div>
+    </body>
+</body>
