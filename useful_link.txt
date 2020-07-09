@@ -1,0 +1,6 @@
+#Deploy to heroku
+https://djangogirlstaipei.herokuapp.com/tutorials/deploy-to-heroku/?os=windows
+#Brainfuck interpreter written in JavaScript
+https://copy.sh/brainfuck/
+#入門html
+https://michaelchen.tech/web-programming/html-primer/
