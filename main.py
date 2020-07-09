@@ -69,5 +69,5 @@ def api():
         return Response("Error Found:\n<SyntaxError> No Brainfuck code provided!", mimetype='text/plain')
 
 if __name__ == '__main__':
-    app.debug = True
-    app.run(host="10.0.2.15",port="5000")
+    app.debug = False
+    app.run()
